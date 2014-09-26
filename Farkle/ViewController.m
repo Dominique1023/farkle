@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "DieLabel.h"
 
-@interface ViewController ()
+@interface ViewController () <DieLabelDelegate>
 @property NSArray *dieArray;
+@property NSMutableArray *dice;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel1;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel2;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel3;
@@ -24,9 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.dieArray = [[NSArray alloc]initWithObjects:self.dieLabel1, self.dieLabel2, self.dieLabel3, self.dieLabel4, self.dieLabel5, self.dieLabel6, nil];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    for (DieLabel *dieLabel in self.dieArray) {
+        dieLabel.delegate = self;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,8 +45,12 @@
 
 - (IBAction)onRollButtonPressed:(id)sender {
     for (DieLabel *label in self.dieArray) {
-        [label roll]; 
+        [label roll];
     }
+
+}
+
+-(void)didChooseLabel:(id)dieLabel{
 
 }
 
