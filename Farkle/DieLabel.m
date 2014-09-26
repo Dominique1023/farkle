@@ -10,12 +10,9 @@
 
 @implementation DieLabel
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(void)roll{
+    int number = arc4random() %6 +1;
+    self.text = [NSString stringWithFormat:@"%d", number ];
 }
-*/
 
 @end

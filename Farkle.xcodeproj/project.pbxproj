@@ -15,6 +15,7 @@
 		960D86E219D61977001C3CB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960D86E119D61977001C3CB8 /* Images.xcassets */; };
 		960D86E519D61977001C3CB8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 960D86E319D61977001C3CB8 /* LaunchScreen.xib */; };
 		960D86F119D61977001C3CB8 /* FarkleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 960D86F019D61977001C3CB8 /* FarkleTests.m */; };
+		960D86FC19D619FC001C3CB8 /* DieLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960D86FB19D619FC001C3CB8 /* DieLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		960D86EA19D61977001C3CB8 /* FarkleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarkleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		960D86EF19D61977001C3CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		960D86F019D61977001C3CB8 /* FarkleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarkleTests.m; sourceTree = "<group>"; };
+		960D86FA19D619FC001C3CB8 /* DieLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DieLabel.h; sourceTree = "<group>"; };
+		960D86FB19D619FC001C3CB8 /* DieLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DieLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,14 +86,11 @@
 		960D86D019D61976001C3CB8 /* Farkle */ = {
 			isa = PBXGroup;
 			children = (
-				960D86D519D61976001C3CB8 /* AppDelegate.h */,
-				960D86D619D61976001C3CB8 /* AppDelegate.m */,
+				960D86DE19D61977001C3CB8 /* Main.storyboard */,
 				960D86DB19D61976001C3CB8 /* ViewController.h */,
 				960D86DC19D61977001C3CB8 /* ViewController.m */,
-				960D86DE19D61977001C3CB8 /* Main.storyboard */,
-				960D86E119D61977001C3CB8 /* Images.xcassets */,
-				960D86E319D61977001C3CB8 /* LaunchScreen.xib */,
-				960D86D819D61976001C3CB8 /* Farkle.xcdatamodeld */,
+				960D86FA19D619FC001C3CB8 /* DieLabel.h */,
+				960D86FB19D619FC001C3CB8 /* DieLabel.m */,
 				960D86D119D61976001C3CB8 /* Supporting Files */,
 			);
 			path = Farkle;
@@ -99,6 +99,11 @@
 		960D86D119D61976001C3CB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				960D86D519D61976001C3CB8 /* AppDelegate.h */,
+				960D86D619D61976001C3CB8 /* AppDelegate.m */,
+				960D86E119D61977001C3CB8 /* Images.xcassets */,
+				960D86D819D61976001C3CB8 /* Farkle.xcdatamodeld */,
+				960D86E319D61977001C3CB8 /* LaunchScreen.xib */,
 				960D86D219D61976001C3CB8 /* Info.plist */,
 				960D86D319D61976001C3CB8 /* main.m */,
 			);
@@ -223,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				960D86D719D61976001C3CB8 /* AppDelegate.m in Sources */,
+				960D86FC19D619FC001C3CB8 /* DieLabel.m in Sources */,
 				960D86D419D61976001C3CB8 /* main.m in Sources */,
 				960D86DD19D61977001C3CB8 /* ViewController.m in Sources */,
 				960D86DA19D61976001C3CB8 /* Farkle.xcdatamodeld in Sources */,

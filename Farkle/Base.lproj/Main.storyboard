@@ -1,24 +1,142 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPn-Cb-i8r" customClass="DieLabel">
+                                <rect key="frame" x="35" y="68" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="m2M-Sm-Ayn" appends="YES" id="J5K-AM-YPY"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjH-Ue-MS5" customClass="DieLabel">
+                                <rect key="frame" x="113" y="68" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IXe-I9-nnP" appends="YES" id="bzm-EE-FJD"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bx8-uv-Fkx" customClass="DieLabel">
+                                <rect key="frame" x="35" y="146" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DPT-yV-ubw" appends="YES" id="aiU-VX-dby"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLY-6L-cT9" customClass="DieLabel">
+                                <rect key="frame" x="113" y="146" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0Yp-u9-3n9" appends="YES" id="91P-4T-2Tx"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26S-lB-QpN" customClass="DieLabel">
+                                <rect key="frame" x="35" y="224" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="MiL-dp-Qu1" appends="YES" id="gmC-qO-hoy"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSD-Al-mcz" customClass="DieLabel">
+                                <rect key="frame" x="113" y="224" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2zk-jX-SyB" appends="YES" id="Us0-Sm-Mga"/>
+                                </connections>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIR-a5-prY">
+                                <rect key="frame" x="195" y="422" width="78" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <state key="normal" title="Roll">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRollButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MeD-ht-6p3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30289303639999998" green="0.60447225770000002" blue="0.24719816829999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="dieLabel1" destination="GPn-Cb-i8r" id="ZHx-8r-qjw"/>
+                        <outlet property="dieLabel2" destination="xjH-Ue-MS5" id="wMs-8L-Zh0"/>
+                        <outlet property="dieLabel3" destination="bx8-uv-Fkx" id="IZ8-QF-WNP"/>
+                        <outlet property="dieLabel4" destination="CLY-6L-cT9" id="V5h-vx-Ibn"/>
+                        <outlet property="dieLabel5" destination="26S-lB-QpN" id="aQX-b4-m3L"/>
+                        <outlet property="dieLabel6" destination="dSD-Al-mcz" id="2Ue-Ms-wf8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="m2M-Sm-Ayn" userLabel="Tap Gesture 1">
+                    <connections>
+                        <action selector="onTapped:" destination="vXZ-lx-hvc" id="ATM-9s-n9T"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="IXe-I9-nnP" userLabel="Tap Gesture 2">
+                    <connections>
+                        <action selector="onTapped:" destination="vXZ-lx-hvc" id="mN6-8w-OmX"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="DPT-yV-ubw" userLabel="Tap Gesture 3">
+                    <connections>
+                        <action selector="onTapped:" destination="vXZ-lx-hvc" id="0h1-xb-oIF"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="0Yp-u9-3n9" userLabel="Tap Gesture 4">
+                    <connections>
+                        <action selector="onTapped:" destination="vXZ-lx-hvc" id="Jai-d5-sip"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="MiL-dp-Qu1" userLabel="Tap Gesture 5">
+                    <connections>
+                        <action selector="onTapped:" destination="vXZ-lx-hvc" id="74w-Ab-ZGQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2zk-jX-SyB" userLabel="Tap Gesture 6">
+                    <connections>
+                        <action selector="onTapped:" destination="vXZ-lx-hvc" id="Udk-qk-vaX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
