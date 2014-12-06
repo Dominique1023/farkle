@@ -9,15 +9,24 @@
 #import "ViewController.h"
 #import "DieLabel.h"
 
-@interface ViewController () <DieLabelDelegate>
+@interface ViewController () <DieLabelDelegate, UIAlertViewDelegate>
 @property NSArray *dieArray;
 @property NSMutableArray *dice;
+@property NSMutableArray *selectedDice;
+@property NSArray *roundLabels;
+@property int score;
+@property NSString *message;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel1;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel2;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel3;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel4;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel5;
 @property (weak, nonatomic) IBOutlet DieLabel *dieLabel6;
+@property (weak, nonatomic) IBOutlet UILabel *userScore;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UIButton *rollButton;
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property (weak, nonatomic) IBOutlet UIButton *bankItButton;
 
 @end
 
@@ -25,38 +34,212 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.dieArray = [[NSArray alloc]initWithObjects:self.dieLabel1, self.dieLabel2, self.dieLabel3, self.dieLabel4, self.dieLabel5, self.dieLabel6, nil];
 
-    for (DieLabel *dieLabel in self.dieArray) {
-        dieLabel.delegate = self;
+    self.dieArray = [[NSArray alloc]initWithObjects:self.dieLabel1, self.dieLabel2, self.dieLabel3, self.dieLabel4, self.dieLabel5, self.dieLabel6, nil];
+    self.dice = [NSMutableArray new];
+    self.selectedDice = [NSMutableArray new];
+
+    for (DieLabel *label in self.dieArray) {
+        label.backgroundColor = [UIColor colorWithRed:128/255.0 green:0/255.0 blue:0/255.0 alpha:1.0f];
+        label.clipsToBounds = YES;
+        label.layer.cornerRadius = 9; 
+        label.delegate = self;
     }
 
-}
+    for (UILabel *roundLabel in self.view.subviews) {
+        if ([roundLabel isKindOfClass:[UILabel class]] && ![roundLabel isKindOfClass:[DieLabel class]]) {
+            self.roundLabels = [[NSArray alloc]initWithObjects:roundLabel, nil];
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+            roundLabel.hidden = YES; 
+        }
+    }
 
--(IBAction)onTapped:(UITapGestureRecognizer *)tapGestureRecognizer{
-    NSLog(@"Tapped");
+    self.userScore.hidden = NO;
+    self.scoreLabel.hidden = NO;
+
+    for (UIButton *button in self.view.subviews) {
+        if ([button isKindOfClass:[UIButton class]]) {
+            button.clipsToBounds = YES;
+            button.layer.cornerRadius = 9;
+        }
+    }
 }
 
 - (IBAction)onRollButtonPressed:(id)sender {
     for (DieLabel *label in self.dieArray) {
-        [label roll];
+        if (![self.dice containsObject:label]) {
+            [label roll];
+        }
+    }
+}
+
+-(void)didChooseLabel:(DieLabel *)dieLabel{
+    dieLabel.backgroundColor = [UIColor colorWithRed:22/255.0 green:128/255.0 blue:18/255.0 alpha:1.0f];
+    dieLabel.textColor = [UIColor whiteColor];
+    [self.dice addObject:dieLabel];
+    [self.selectedDice addObject:dieLabel];
+}
+
+- (IBAction)onResetButtonPressed:(id)sender {
+    for (UILabel *label in self.dice) {
+        label.backgroundColor = [UIColor colorWithRed:128/255.0 green:0/255.0 blue:0/255.0 alpha:1.0f];
+
+    }
+    self.userScore.text = @"0000";
+    self.score = 0;
+    [self.dice removeAllObjects];
+    [self.selectedDice removeAllObjects];
+    [self onRollButtonPressed:self];
+
+}
+
+- (IBAction)onBankItButtonPressed:(id)sender {
+    [self farkleScoring];
+
+//
+//    if (self.score  == 0) {
+//        UIAlertView *minNotMet = [[UIAlertView alloc]initWithTitle:nil message:self.message delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
+//
+//        [minNotMet show];
+//    }else{
+      self.userScore.text = [NSString stringWithFormat:@"%i", self.score];
+//
+//    }
+
+}
+
+-(void)farkleScoring{
+    int ones = 0;
+    int twos = 0;
+    int threes = 0;
+    int fours = 0;
+    int fives = 0;
+    int sixes = 0;
+
+    for (UILabel *die in self.selectedDice) {
+        switch ([die.text intValue]) {
+            case 1:
+                ones++;
+                break;
+            case 2:
+                twos++;
+                break;
+            case 3:
+                threes++;
+                break;
+            case 4:
+                fours++;
+                break;
+            case 5:
+                fives++;
+                break;
+            case 6:
+                sixes++;
+                break;
+            default:
+                break;
+        }
+
+
+    }//end of for loop
+
+    //calculating ones
+    if (ones > 0) {
+        //if all 6 die selected is 1 then change the score and quit calculating the ones
+        if (ones == 6) {
+            self.score += 2000;
+            ones -= 6;
+        }
+
+        //for all the ones add a 100 and take one away after checking there is still something.
+        for (int y = 0; ones > 0 ; y++) {
+            //if there are three ones selected than change the score and quit calculating the ones
+                if (ones == 3) {
+                    self.score += 1000;
+                    ones -= 3;
+                }
+            if (ones > 0) {
+                self.score += 100;
+                ones--;
+            }
+
+        }
     }
 
+
+
+    //calculating fives
+    if (fives > 0) {
+        if (fives == 3) {
+            self.score += 500;
+            fives -= 3;
+        }else if (fives == 6){
+            self.score += 1000;
+            fives -= 6;
+        }else if (fives == 1){
+            self.score += 50;
+            fives --;
+        }
+
+    }
+
+    //calculating twos
+    if (twos > 0 ) {
+        if (twos == 3) {
+            self.score += 200;
+            twos -= 3;
+        }else if (twos == 6){
+            self.score += 400;
+            twos -= 6;
+        }else{
+            self.message = @"Need to have atleast 3 twos to bank";
+        }
+    }
+
+    //calculating threes
+    if (threes > 0 ) {
+        if (threes == 3) {
+            self.score += 300;
+            threes -= 3;
+        }else if (threes == 6){
+            self.score += 600;
+            threes -= 6;
+        }else{
+            self.message = @"Need to have atleast 3 threes to bank";
+        }
+    }
+
+    //calculating fours
+    if (fours > 0 ) {
+        if (fours == 3) {
+            self.score += 400;
+            fours -= 3;
+        }else if (fours == 6){
+            self.score += 800;
+            fours -= 6;
+        }else{
+            self.message = @"Need to have atleast 3 fours to bank";
+        }
+    }
+
+    //calculating sixes
+    if (sixes > 0 ) {
+        if (sixes == 3) {
+            self.score += 600;
+            sixes -= 3;
+        }else if (sixes == 6){
+            self.score += 1200;
+            sixes -= 6;
+        }else{
+            self.message = @"Need to have atleast 3 twos to bank";
+        }
+    }
+
+    [self.selectedDice removeAllObjects];
 }
 
--(void)didChooseLabel:(id)dieLabel{
-
-}
 
 @end
-
-
 
 
 

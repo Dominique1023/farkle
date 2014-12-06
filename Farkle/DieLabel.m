@@ -15,4 +15,10 @@
     self.text = [NSString stringWithFormat:@"%d", number ];
 }
 
+-(IBAction)onTap:(UITapGestureRecognizer *)tapGestureRecognizer{
+    [self.delegate didChooseLabel:self]; 
+}
+
+
+
 @end
