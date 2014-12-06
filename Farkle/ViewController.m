@@ -166,19 +166,23 @@
         }
     }
 
-
-
     //calculating fives
     if (fives > 0) {
-        if (fives == 3) {
-            self.score += 500;
-            fives -= 3;
-        }else if (fives == 6){
-            self.score += 1000;
+        if (fives == 6) {
+            self.score = 1000;
             fives -= 6;
-        }else if (fives == 1){
-            self.score += 50;
-            fives --;
+        }
+
+        for (int i = 0; fives > 0 ; i++) {
+            if (fives == 3) {
+                self.score += 500;
+                fives -= 3;
+            }
+
+            if (fives > 0) {
+                self.score += 50;
+                fives --;
+            }
         }
 
     }
