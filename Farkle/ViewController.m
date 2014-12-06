@@ -98,14 +98,15 @@
 
     if (self.message.length != 0) {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Score Error!" message:self.message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-
         [alertView show];
-
 
         if (self.score != 0) {
             self.userScore.text = [NSString stringWithFormat:@"%i", self.score];
         }
 
+    }
+    if (self.score != 0) {
+        self.userScore.text = [NSString stringWithFormat:@"%i", self.score];
     }
 
 
@@ -213,40 +214,64 @@
 
     //calculating threes
     if (threes > 0 ) {
-        if (threes == 3) {
-            self.score += 300;
-            threes -= 3;
-        }else if (threes == 6){
-            self.score += 600;
+        if (threes == 6) {
+            self.score = 600;
             threes -= 6;
-        }else{
-            self.message = @"Need to have atleast 3 threes to bank";
+        }
+
+        if (threes >= 3) {
+            self.score = 300;
+            if (threes > 3) {
+                self.message = @"Can only bank 3 or 6 threes";
+            }
+            threes = 0;
+        }
+
+        if (threes > 0) {
+            self.message = @"Can only bank 3 or 6 threes";
+
         }
     }
 
     //calculating fours
     if (fours > 0 ) {
-        if (fours == 3) {
-            self.score += 400;
-            fours -= 3;
-        }else if (fours == 6){
-            self.score += 800;
+        if (fours == 6) {
+            self.score = 800;
             fours -= 6;
-        }else{
-            self.message = @"Need to have atleast 3 fours to bank";
+        }
+
+        if (fours >= 3) {
+            self.score = 400;
+            if (fours > 3) {
+                self.message = @"Can only bank 3 or 6 fours";
+            }
+            fours = 0;
+        }
+
+        if (fours > 0) {
+            self.message = @"Can only bank 3 or 6 fours";
+            
         }
     }
 
     //calculating sixes
     if (sixes > 0 ) {
-        if (sixes == 3) {
-            self.score += 600;
-            sixes -= 3;
-        }else if (sixes == 6){
-            self.score += 1200;
-            sixes -= 6;
-        }else{
-            self.message = @"Need to have atleast 3 twos to bank";
+        if (sixes == 6) {
+            self.score = 1200;
+            threes -= 6;
+        }
+
+        if (sixes >= 3) {
+            self.score = 600;
+            if (sixes > 3) {
+                self.message = @"Can only bank 3 or 6 sixes";
+            }
+            sixes = 0;
+        }
+
+        if (sixes > 0) {
+            self.message = @"Can only bank 3 or 6 sixes";
+            
         }
     }
 
