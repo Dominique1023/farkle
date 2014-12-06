@@ -96,15 +96,18 @@
 - (IBAction)onBankItButtonPressed:(id)sender {
     [self farkleScoring];
 
-//
-//    if (self.score  == 0) {
-//        UIAlertView *minNotMet = [[UIAlertView alloc]initWithTitle:nil message:self.message delegate:self cancelButtonTitle:@"okay" otherButtonTitles:nil, nil];
-//
-//        [minNotMet show];
-//    }else{
-      self.userScore.text = [NSString stringWithFormat:@"%i", self.score];
-//
-//    }
+    if (self.message.length != 0) {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Score Error!" message:self.message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+
+        [alertView show];
+
+
+        if (self.score != 0) {
+            self.userScore.text = [NSString stringWithFormat:@"%i", self.score];
+        }
+
+    }
+
 
 }
 
@@ -189,15 +192,23 @@
 
     //calculating twos
     if (twos > 0 ) {
-        if (twos == 3) {
-            self.score += 200;
-            twos -= 3;
-        }else if (twos == 6){
-            self.score += 400;
+        if (twos == 6) {
+            self.score = 400;
             twos -= 6;
-        }else{
-            self.message = @"Need to have atleast 3 twos to bank";
         }
+
+        if (twos >= 3) {
+            self.score = 200;
+            if (twos > 3) {
+                self.message = @"Can only bank 3 or 6 twos";
+            }
+            twos = 0;
+        }
+
+        if (twos > 0 ) {
+            self.message = @"Can only bank 3 or 6 twos";
+        }
+
     }
 
     //calculating threes
